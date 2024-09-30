@@ -1,5 +1,8 @@
 import os
 
+print(" \nSeja Bem vindo ao cardapio da Cleide Lanches! Aqui oferecemos as melhores soluções para a sua fome! \n Tudo feito de forma caseira pelo nosso chefe Carlinhos!\n")
+
+
 
     # Salvar variáveis em um arquivo separado por nomes
 def salvar_variaveis(path_file, **kwargs):
@@ -20,30 +23,87 @@ def carregar_variaveis(path_file):
     return variaveis
 
 def verifica_primeira_vez():
-    match os.path.exists("variaveis.txt"):
+    match os.path.exists("dados_pessoais.txt"):
 
         case True:
-            variaveis_carregadas = carregar_variaveis('variaveis.txt')
+            
+            variaveis_carregadas = carregar_variaveis('dados_pessoais.txt')
             if variaveis_carregadas != None:
+                
                 if len(variaveis_carregadas) > 0:
-                    print(f"seja bem vindo novamente, seus dados são:\n Nome: {variaveis_carregadas['nome']} \n Numero de Telefone:{variaveis_carregadas['telefone']}\n Email: {variaveis_carregadas['email']}")
+                    
+                    print(f"Vejo que você ja tem registro, por acaso você é: {variaveis_carregadas['nome']}? ")
+                    variaveis_carregadas = input("Digite: \n 1-sim \n 2-não")
+                    
+                    if variaveis_carregadas == "1":
+                        
+                        variaveis_carregadas = carregar_variaveis('dados_pessoais.txt')
+                        
+                    elif variaveis_carregadas == "2":
+                        
+                         nome_v = input("por favor digite seu nome: ")
+                         email_v = input("por favor digite seu Email: ")
+                         senha_v = input("por favor digite seu Senha: ")
+                         
+                         print("\nCadastro Concluido.")
+                         
+
+                         salvar_variaveis('dados_pessoais.txt',nome = nome_v)
+                        
                 else:
-                    nome_v = input("por favor digite seu nome")
-                    telefone_v = input("por favor digite seu numero de telefone")
-                    email_v = input("por favor digite seu Email")
+                    nao_cadastro = input("Você não tem um cadastro, deseja se cadastrar? \n 1-Sim! \n 2-Não! \n ")
+                    if nao_cadastro == "1":
+                        
+                        print("Digite as informações a seguir para se cadastrar!")
+                        nome_v = input("por favor digite seu nome: ")
+                        email_v = input("por favor digite seu Email: ")
+                        senha_v = input("por favor digite seu Senha: ")
+                        
+                        print("\nCadastro Concluido.")
+                        
+                        salvar_variaveis('dados_pessoais.txt',nome = nome_v, senha = senha_v, email = email_v )
+                        
+                    elif nao_cadastro == "2":
+                        print("Entendido, programa finalizado!")
+                        
+                    else:
+                        print("Digito Invalido, Programa finalizado.")
+                        
 
-                    salvar_variaveis('variaveis.txt',nome = nome_v, telefone = telefone_v, email = email_v )
             else:
-                nome_v = input("por favor digite seu nome")
-                telefone_v = input("por favor digite seu numero de telefone")
-                email_v = input("por favor digite seu Email")
-
-                salvar_variaveis('variaveis.txt',nome = nome_v, telefone = telefone_v, email = email_v )
+                nao_cadastro = input("Você não tem um cadastro, deseja se cadastrar? \n 1-Sim! \n 2-Não! \n ")
+                if nao_cadastro == "1":
+                    
+                    print("Digite as informações a seguir para se cadastrar!")    
+                    nome_v = input("por favor digite seu nome: ")
+                    email_v = input("por favor digite seu Email: ")
+                    senha_v = input("por favor digite seu Senha: ")
+                    
+                    print("\nCadastro Concluido.")
+                    
+                    salvar_variaveis('dados_pessoais.txt',nome = nome_v, senha = senha_v, email = email_v )
+                    
+                elif nao_cadastro == "2":
+                    print("Entendido, programa finalizado!")
+                else:
+                    print("Digito Invalido, Programa finalizado.")
+                    
         case False:
-                nome_v = input("por favor digite seu nome")
-                telefone_v = input("por favor digite seu numero de telefone")
-                email_v = input("por favor digite seu Email")
+                nao_cadastro = input("Você não tem um cadastro, deseja se cadastrar? \n 1-Sim! \n 2-Não! \n ")
+                if nao_cadastro == "1":
+                    
+                    nome_v = input("Digite seu Nome: ")
+                    email_v = input("Digite seu Email: ")
+                    senha_v = input("Digite sua Senha: ")
+                    
+                    print("\nCadastro Concluido.")
 
-                salvar_variaveis('variaveis.txt',nome = nome_v, telefone = telefone_v, email = email_v )
+                    salvar_variaveis('dados_pessoais.txt',nome = nome_v, senha = senha_v, email = email_v )   
+                     
+                elif nao_cadastro == "2":
+                    print("Entendido, programa finalizado!")
+                    
+                else:
+                    print("Digito Invalido, Programa finalizado.")
 
 verifica_primeira_vez()
