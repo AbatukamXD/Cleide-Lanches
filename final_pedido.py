@@ -5,6 +5,9 @@ segundos = 59
 minutos = random.randint(5, 10)
 
 
+
+
+
 while minutos >= 0:
    
     if segundos > -1:
