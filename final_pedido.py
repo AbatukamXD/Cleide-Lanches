@@ -1,9 +1,12 @@
 import time
 import random
+import webbrowser
+
 print(f"\n Pedido Realizado com sucesso, o numero do seu pedido é: {random.randint(0,999)} \n O Tempo de espera é de: ")
 segundos = 59 
 minutos = random.randint(5, 10)
 
+print(minutos,":", segundos )
 
 while minutos >= 0:
    
@@ -15,4 +18,6 @@ while minutos >= 0:
             segundos = 59
             minutos += -1
 
-print("A comida está pronta! Acomida esta pronta! \n \n https://www.youtube.com/shorts/ZjEJaWByFlY \n")
+print("\nA comida está pronta!")
+
+webbrowser.open("https://www.youtube.com/shorts/ZjEJaWByFlY")
