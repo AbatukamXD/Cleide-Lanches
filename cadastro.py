@@ -53,8 +53,9 @@ lista_carrinho = []
 
 def cardapio():
     while True:
-        print("Este é o nosso cardápio! Aproveite!")
-        print("1. Salgados\n2. Hamburger\n3. Bebidas\n4. Fechar")
+        print("Este é o nosso cardápio! Aproveite! 😜")
+        print ("-"*20)
+        print("[1] Salgados 🥐\n[2] Hamburger 🍔\n[3] Bebidas 🥤\n[4] Fechar 👋")
         entrada = input("Selecione uma das nossas opções: ")
 
         if entrada == "1":
@@ -64,10 +65,12 @@ def cardapio():
         elif entrada == "3":
             bebidas() 
         elif entrada == "4":
-            print("Agradecemos a sua visita! Esperamos por você na próxima :)")
+            print("\nAgradecemos a sua visita! \nEsperamos por você na próxima 😁")
             break  
         else:
-            print("A Cleide Lanches não entendeu. Tente novamente.")
+            print("A Cleide Lanches não entendeu. Tente novamente!")
+            print ("-"*20)
+            continue
 
         if confirmar_pedido(lista_carrinho):
             total = calcular_total(lista_carrinho)
@@ -81,17 +84,18 @@ def calcular_total(carrinho):
 
 def perguntar_se_deseja_continuar():
     while True:
-        opcao = input("Deseja pedir mais alguma coisa? [s] ou [n]: ")
-        if opcao == "s":
+        opcao = input("Deseja pedir mais alguma coisa? [SIM] ou [NÃO]: ")
+        if opcao == "SIM":
             return cardapio()
-        elif opcao == "n":
+        elif opcao == "NÃO":
+            print ("-"*20)
             return False
         else:
             print("Opção inválida. Tente novamente.")
 
 def salgados():
-    print("Ótima escolha!")
-    print("1. Pastel\n2. Risólis\n3. Enroladinho")
+    print("\nÓtima escolha!")
+    print("[1] Pastel\n[2] Risólis\n[3] Enroladinho")
     entrada = input("Selecione uma das nossas opções: ")
 
     if entrada == "1":
@@ -102,6 +106,7 @@ def salgados():
         enroladinho = {"nome": "Enroladinho", "valor": 2.00}
         lista_carrinho.append(enroladinho)
         print("Você escolheu Enroladinho.")
+        print ("-"*20)
     else:
         print("Opção inválida.")
     
@@ -109,12 +114,23 @@ def salgados():
         confirmar_pedido(lista_carrinho)
 
 def pastel():
-    print("Opções de Pastel: ")
-    entrada = input("1. Carne\n")
+    print("\nOpções de Pastel: ")
+    entrada = input("[1] Carne 🥩\n[2] Frango 🍗\n[3] Queijo 🧀")
     if entrada == "1":
-        pastel = {"nome": "Pastel de Carne", "valor": 5.00}
-        lista_carrinho.append(pastel)
+        pastel_carne = {"nome": "Pastel de Carne", "valor": 5.00}
+        lista_carrinho.append(pastel_carne)
         print("Você escolheu Pastel de Carne.")
+        print ("-"*20)
+    elif entrada == "2":
+        pastel_frango = {"nome": "Pastel de Frango", "valor": 5.00}
+        lista_carrinho.append(pastel_frango)
+        print("Você escolheu Pastel de Frango.")
+        print ("-"*20)
+    elif entrada == "3":
+        pastel_queijo = {"nome": "Pastel de Queijo", "valor": 5.00}
+        lista_carrinho.append(pastel_queijo)
+        print("Você escolheu Pastel de Queijo.")
+        print ("-"*20)
     else:
         print("Opção inválida.")
     
@@ -122,12 +138,18 @@ def pastel():
         confirmar_pedido(lista_carrinho)
 
 def risolis():
-    print("Opções de Risólis: ") 
-    entrada = input("1. Carne\n")
+    print("\nOpções de Risólis: ") 
+    entrada = input("[1] Carne 🥩\n[2] Frango 🍗")
     if entrada == "1":
-        risolis = {"nome": "Risólis de Carne", "valor": 4.00}
-        lista_carrinho.append(risolis)
+        risolis_carne = {"nome": "Risólis de Carne", "valor": 4.00}
+        lista_carrinho.append(risolis_carne)
         print("Você escolheu Risólis de Carne.")
+        print ("-"*20)
+    elif entrada == "2":
+        risolis_frango = {"nome": "Risólis de Frango", "valor": 4.00}
+        lista_carrinho.append(risolis_frango)
+        print("Você escolheu Risólis de Frango.")
+        print ("-"*20)
     else:
         print("Opção inválida.")
     
@@ -135,12 +157,23 @@ def risolis():
         confirmar_pedido(lista_carrinho)
 
 def burger():
-    print("Opções de Hamburger: ")
-    entrada = input("1. Cleide 1\n")
+    print("\nOpções de Hamburger: ")
+    entrada = input("[1] Super Cleide 😱 (Duas carnes, queijo, molho Cleide e bacon)\n[2] Big Cleide 😎 (Carne, queijo, molho Cleide, alface e tomate)\n[3] Veg Cleide 🥗 (Carne de soja, molho Cleide, alface, tomate e picles)")
     if entrada == "1":
-        burger = {"nome": "Cleide 1", "valor": 5.00}
-        lista_carrinho.append(burger)
-        print("Você escolheu Cleide 1.")
+        burger_1 = {"nome": "Super Cleide", "valor": 23.00}
+        lista_carrinho.append(burger_1)
+        print("Você escolheu Super Cleide.")
+        print ("-"*20)
+    elif entrada == "2":
+        burger_2 = {"nome": "Big Cleide", "valor": 18.00}
+        lista_carrinho.append(burger_2)
+        print("Você escolheu Big Cleide.")
+        print ("-"*20)
+    elif entrada == "3":
+        burger_3 = {"nome": "Veg Cleide", "valor": 20.00}
+        lista_carrinho.append(burger_3)
+        print("Você escolheu Veg Cleide.")
+        print ("-"*20)
     else:
         print("Opção inválida.")
     
@@ -148,18 +181,20 @@ def burger():
         confirmar_pedido(lista_carrinho)
 
 def bebidas():
-    print("Opções de Bebidas: ")
-    print("1. Pepsi\n2. Fanta\n3. Guaraná\n4. Sprite\n5. Tap Water")
+    print("\nOpções de Bebidas: ")
+    print("[1] Pepsi\n[2] Fanta\n[3] Guaraná\n[4] Sprite\n[5] Tap Water")
     entrada = input("Escolha uma bebida: ")
 
     if entrada in ['1', '2', '3', '4']:
         refri = {"nome": "Refrigerante", "valor": 5.00}
         lista_carrinho.append(refri)
-        print("Você escolheu Refrigerante Lata.")
+        print("Você escolheu Refrigerante Lata. 🥃")
+        print ("-"*20)
     elif entrada == "5":
         agua = {"nome": "Água", "valor": 3.00}
         lista_carrinho.append(agua)
-        print("Você escolheu Tap Water.")
+        print("Você escolheu Tap Water. 🧊")
+        print ("-"*20)
     else:
         print("Opção inválida.")
 
@@ -177,7 +212,10 @@ def confirmar_pedido(lista_carrinho):
         print("Você não fez nenhum pedido.")
         return False
 
-    confirmar = input("Deseja confirmar o pedido? [s] ou [n]: ")
-    return confirmar.lower() == "s"
+    confirmar = input("Deseja confirmar o pedido? [SIM] ou [NÃO]: ")
+    return confirmar == "SIM"
 
+
+
+verifica_primeira_vez()
 cardapio()
