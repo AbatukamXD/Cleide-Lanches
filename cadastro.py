@@ -71,11 +71,12 @@ def cardapio():
             case _:
                 print("A Cleide Lanches não entendeu. Tente novamente!")
                 print ("-"*20)
-
+''''
         if confirmar_pedido(lista_carrinho):
             total = calcular_total(lista_carrinho)
             print(f"Seu pedido foi confirmado e o valor total ficou de: R$ {total:.2f}")
             lista_carrinho.clear()
+'''
 
 def calcular_total(carrinho):
     return sum(item["valor"] for item in carrinho)
@@ -107,9 +108,8 @@ def salgados():
             print("Você escolheu Enroladinho.")
         case _:
             print("Opção inválida.")
+            salgados()
 
-    if not perguntar_se_deseja_continuar():
-        confirmar_pedido(lista_carrinho)
 
 def pastel():
     print("\nOpções de Pastel: ")
