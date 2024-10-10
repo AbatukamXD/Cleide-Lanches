@@ -202,3 +202,4 @@ def confirmar_pedido(lista_carrinho):
 
 cardapio()
 verifica_primeira_vez()
+

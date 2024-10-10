@@ -1,0 +1,3 @@
+nome: ronildo rego
+senha: 1724245
+email: carlinhosgames@gmail.com
